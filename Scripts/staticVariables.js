@@ -5,6 +5,9 @@ public static var baseCharMaxSpeed:float = 10;
 public static var baseCharSprintMod:float = 1.7;
 public static var baseGravity:float = 9.8;
 
+// Camera Variables
+public static var baseCameraDistance:float = 10;
+
 function Start () {
 
 }
