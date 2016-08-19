@@ -7,6 +7,12 @@ public static var baseGravity:float = 9.8;
 // Camera Variables
 public static var baseCameraDistance:float = 10;
 
+// Enemies Bank
+public static var enemyBank: Enemy;
+enum Enemy {
+    Ghoul, Demon, Potato
+}
+
 function Start () {
 
 }
