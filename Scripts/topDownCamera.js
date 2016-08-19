@@ -1,9 +1,9 @@
 #pragma strict
 
-public var mouseSensitivity : float = 1.0;
+private var mouseSensitivity : float = staticVariables.mouseSensitivity;
 private var cameraDistance : float = staticVariables.baseCameraDistance;
+private var radius : float = staticVariables.baseCameraMoveRadius;
 private var lastPosition : Vector3;
-private var radius : float = 2.5;
 
 function Awake() {
 	transform.localPosition = new Vector3(0, cameraDistance, 0);
@@ -12,6 +12,9 @@ function Awake() {
 function FixedUpdate() {
 	var delta : Vector3 = Input.mousePosition - lastPosition;
 	transform.Translate(delta.x * mouseSensitivity, delta.y * mouseSensitivity, 0);
-	transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, -radius, radius), transform.localPosition.y, Mathf.Clamp(transform.localPosition.z, -radius, radius));
+	var dummyPos = transform.localPosition;
+	dummyPos.y = 0;
+	var clampedPos = Vector3.ClampMagnitude(dummyPos, radius);
+	transform.localPosition = new Vector3(clampedPos.x, transform.localPosition.y, clampedPos.z);
 	lastPosition = Input.mousePosition;
 }

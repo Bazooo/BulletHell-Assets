@@ -1,15 +1,15 @@
 ﻿#pragma strict
 
-var waves: EnemyWave[];
-private var spawnerTime: float = 0;
-private var nextWaveTime:float = 0;
-private var spawnerWave: int = 0;
+var waves : EnemyWave[];
+private var spawnerTime : float = 0;
+private var nextWaveTime : float = 0;
+private var spawnerWave : int = 0;
 
 public class EnemyWave {
-    // var name: String = "";
-    var name: Enemy = staticVariables.enemyBank;
-    var amount: int = 1;
-    var delay: float = 0.0;
+    // var name : String = "";
+    var name : Enemy = staticVariables.enemyBank;
+    var amount : int = 1;
+    var delay : float = 0.0;
 }
 
 public function Awake() {
